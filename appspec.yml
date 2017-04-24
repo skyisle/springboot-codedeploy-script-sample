@@ -1,6 +1,16 @@
 version: 0.0
 os: linux
 
+files:
+  - source: /
+    destination: /home/ec2-user/server
+
+permissions:
+  - object: /
+    pattern: "**"
+    owner: ec2-user
+    group: ec2-user
+
 hooks:
   ApplicationStop:
     - location: scripts/server_stop.sh
